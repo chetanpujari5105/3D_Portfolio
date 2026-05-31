@@ -1,3 +1,4 @@
+// Deployment Trigger: VERCEL_BUILD_FORCE_REFRESH_2026_05_31_14_30
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";

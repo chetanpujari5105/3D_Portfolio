@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-carbon: #050505;
+  --color-graphite: #1A1A1A;
+  --color-ember: #F37512;
+  --color-amberHighlight: #FBD5A5;
+  --color-boneWhite: #F2F2EC;
+
+  --font-display: var(--font-fraunces), serif;
+  --font-body: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+}
+
+/* Base Styles */
+body {
+  background-color: #050505;
+  color: #F2F2EC;
+  font-family: var(--font-geist-sans), sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 5% Opacity Film Grain / Noise Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Industrial Grid Mesh Utility */
+.industrial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(242, 242, 236, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 242, 236, 0.025) 1px, transparent 1px);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(26, 26, 26, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(242, 242, 236, 0.08);
+}
+
+.glass-pill {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 242, 236, 0.08);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border-radius: 3px;
+  border: 1px solid rgba(242, 242, 236, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F37512;
+}
+
+/* Selection */
+::selection {
+  background: #F37512;
+  color: #050505;
+}
+
+/* Custom styles for satellite canvas loading */
+.canvas-container canvas {
+  pointer-events: auto !important;
+}
+
+/* Disable focus outlines except keyboard focus */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid #F37512;
+  outline-offset: 2px;
+}
